@@ -25,3 +25,9 @@
   --color-hoverbutton2: #a0bce0;
   background-color: var(--color-bg);
 }
+
+@media (min-width: 1400px) {
+  :root {
+    font-size: 1vw;
+  }
+}
