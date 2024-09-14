@@ -10,7 +10,11 @@ interface SectionProps {
   showTimer: boolean;
 }
 
-const Section: React.FC<SectionProps> = ({ sectionTitle, sliderTitle }) => {
+const Section: React.FC<SectionProps> = ({
+  sectionTitle,
+  sliderTitle,
+  children,
+}) => {
   return (
     <div className="xl:pl-32 px-10 margin-auto lg:px-[5%] mt-20 mb-20 ">
       <SectionTitle title={sectionTitle} />
@@ -21,6 +25,7 @@ const Section: React.FC<SectionProps> = ({ sectionTitle, sliderTitle }) => {
           </h1>
         </div>
       </div>
+      <div className="flex gap-10 flex-wrap">{children}</div>
     </div>
   );
 };
