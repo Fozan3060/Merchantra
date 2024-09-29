@@ -13,7 +13,7 @@ const config: Config = {
   // bail: 0,
 
   // The directory where Jest should store its cached dependency information
-  // cacheDirectory: "C:\\Users\\BN GAMING\\AppData\\Local\\Temp\\jest",
+  // cacheDirectory: "C:\\Users\\fozan\\AppData\\Local\\Temp\\jest",
 
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
@@ -194,6 +194,10 @@ const config: Config = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+  moduleNameMapper: {
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy", // For CSS handling
+    "\\.(svg|png|jpg|jpeg|gif)$": "<rootDir>/__mocks__/fileMock.js", // For images
+  },
 };
 
 export default config;
