@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: <Layout />, // Always display the layout with the header
     children: [
       {
         path: "/",
@@ -14,15 +14,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/Contact",
-        element: <div>Contact Page</div>,
+        element: <div>Contact Page</div>, // Replace with actual component
       },
       {
         path: "/Sign_Up",
-        element: <div>Sign Up Page</div>,
+        element: <div>Sign Up Page</div>, // Replace with actual component
       },
       {
         path: "/About",
-        element: <div>About Page</div>,
+        element: <div>About Page</div>, // Replace with actual component
       },
     ],
   },
