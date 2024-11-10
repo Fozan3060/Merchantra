@@ -24,7 +24,7 @@ const HeroSlider: React.FC = () => {
       scrollbar={{ draggable: true }}
     >
       <SwiperSlide>
-        <div className="flex bg-black h-80">
+        <div className="flex text-white bg-black h-80">
           <div className="w-96"></div>
           <div className="absolute sm:backdrop-blur-none backdrop-blur-sm font-poppins inset-0 flex gap-3 flex-col justify-center pl-16 ">
             <div className=" bg-opacity-50 gap-5 flex items-center text-white ">
