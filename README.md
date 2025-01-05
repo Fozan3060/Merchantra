@@ -37,7 +37,7 @@ TrendMart App build on React and Typescript
 
 ## Authors
 
-Muhammad Aahad  
+Fozan Javaid  
 [@Fozan Javaid](https://www.linkedin.com/in/fozan-javaid/)
 
 ## URLs
