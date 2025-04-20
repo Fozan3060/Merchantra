@@ -15,7 +15,7 @@ const MobileNav: React.FC<Props> = ({ openMenu }) => {
           animate={{ x: 0 }}
           exit={{ x: "100%" }}
           transition={{ duration: 0.1 }}
-          className="bg-black bg-opacity-80 z-10 backdrop-blur-md pt-32 pb-12 lg:hidden text-center fixed will-change-transform w-full"
+          className="bg-black h-screen bg-opacity-80 z-10 backdrop-blur-md pt-32 pb-12 lg:hidden text-center fixed will-change-transform w-full"
         >
           <div className="w-fit m-auto">
             <NavigationLinks />
