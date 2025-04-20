@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { CartContext, CartProvider } from "../../Context/CartContext";
 import { WishlistProvider } from "../../Context/WishlistContext";
+import { MemoryRouter } from "react-router-dom"; // Import MemoryRouter
 import DetailedProduct from "../DetailedProduct";
 import "@testing-library/jest-dom";
 
@@ -17,11 +18,13 @@ const mockProductData = {
 describe("DetailedProduct Component", () => {
   test("renders loading skeleton when isLoading is true", () => {
     render(
-      <CartProvider>
-        <WishlistProvider>
-          <DetailedProduct data={undefined} isLoading={true} error={null} />
-        </WishlistProvider>
-      </CartProvider>,
+      <MemoryRouter>
+        <CartProvider>
+          <WishlistProvider>
+            <DetailedProduct data={undefined} isLoading={true} error={null} />
+          </WishlistProvider>
+        </CartProvider>
+      </MemoryRouter>,
     );
 
     expect(screen.getByTestId("ProductTitleSkeleton")).toBeInTheDocument();
@@ -29,11 +32,17 @@ describe("DetailedProduct Component", () => {
 
   test("displays error message when error occurs", () => {
     render(
-      <CartProvider>
-        <WishlistProvider>
-          <DetailedProduct data={undefined} isLoading={false} error={"Error"} />
-        </WishlistProvider>
-      </CartProvider>,
+      <MemoryRouter>
+        <CartProvider>
+          <WishlistProvider>
+            <DetailedProduct
+              data={undefined}
+              isLoading={false}
+              error={"Error"}
+            />
+          </WishlistProvider>
+        </CartProvider>
+      </MemoryRouter>,
     );
 
     expect(screen.getByText("Error Loading Product")).toBeInTheDocument();
@@ -41,15 +50,17 @@ describe("DetailedProduct Component", () => {
 
   test("renders the product details correctly", () => {
     render(
-      <CartProvider>
-        <WishlistProvider>
-          <DetailedProduct
-            data={mockProductData}
-            isLoading={false}
-            error={null}
-          />
-        </WishlistProvider>
-      </CartProvider>,
+      <MemoryRouter>
+        <CartProvider>
+          <WishlistProvider>
+            <DetailedProduct
+              data={mockProductData}
+              isLoading={false}
+              error={null}
+            />
+          </WishlistProvider>
+        </CartProvider>
+      </MemoryRouter>,
     );
 
     expect(screen.getByTestId("ProductTitle")).toHaveTextContent(
@@ -63,15 +74,17 @@ describe("DetailedProduct Component", () => {
 
   test("allows selecting a color", () => {
     render(
-      <CartProvider>
-        <WishlistProvider>
-          <DetailedProduct
-            data={mockProductData}
-            isLoading={false}
-            error={null}
-          />
-        </WishlistProvider>
-      </CartProvider>,
+      <MemoryRouter>
+        <CartProvider>
+          <WishlistProvider>
+            <DetailedProduct
+              data={mockProductData}
+              isLoading={false}
+              error={null}
+            />
+          </WishlistProvider>
+        </CartProvider>
+      </MemoryRouter>,
     );
 
     const blueColorOption = screen.getAllByRole("radio")[0];
@@ -81,15 +94,17 @@ describe("DetailedProduct Component", () => {
 
   test("increases and decreases the quantity", () => {
     render(
-      <CartProvider>
-        <WishlistProvider>
-          <DetailedProduct
-            data={mockProductData}
-            isLoading={false}
-            error={null}
-          />
-        </WishlistProvider>
-      </CartProvider>,
+      <MemoryRouter>
+        <CartProvider>
+          <WishlistProvider>
+            <DetailedProduct
+              data={mockProductData}
+              isLoading={false}
+              error={null}
+            />
+          </WishlistProvider>
+        </CartProvider>
+      </MemoryRouter>,
     );
 
     const decrementButton = screen.getByTestId("Dec_Qty");
@@ -108,23 +123,25 @@ describe("DetailedProduct Component", () => {
     const mockAddToCart = jest.fn();
 
     render(
-      <CartContext.Provider
-        value={{
-          setCartItems() {},
-          addToCart: mockAddToCart,
-          cartItems: [],
-          updateQuantity() {},
-          removeFromCart() {},
-        }}
-      >
-        <WishlistProvider>
-          <DetailedProduct
-            data={mockProductData}
-            isLoading={false}
-            error={null}
-          />
-        </WishlistProvider>
-      </CartContext.Provider>,
+      <MemoryRouter>
+        <CartContext.Provider
+          value={{
+            setCartItems() {},
+            addToCart: mockAddToCart,
+            cartItems: [],
+            updateQuantity() {},
+            removeFromCart() {},
+          }}
+        >
+          <WishlistProvider>
+            <DetailedProduct
+              data={mockProductData}
+              isLoading={false}
+              error={null}
+            />
+          </WishlistProvider>
+        </CartContext.Provider>
+      </MemoryRouter>,
     );
 
     const buyNowButton = screen.getByText(/Buy Now/i);
