@@ -62,25 +62,28 @@ const ActionPanel: React.FC = () => {
       </Link>
       {isAuthenticated && (
         <div
-          onMouseEnter={() => setShowDropdown(true)}
-          onMouseLeave={() => setShowDropdown(false)}
+          onClick={() => setShowDropdown(!showDropdown)}
           className="relative "
         >
           <Link
-            className={`relative block border-black rounded-full p-[0.35rem] ${showDropdown ? "bg-button2 text-white" : ""} duration-200 transition-all`}
+            className={`relative block border-black rounded-full p-[0.35rem] ${
+              showDropdown ? "bg-button2 text-white" : ""
+            } duration-200 transition-all relative block border-black rounded-full p-[0.35rem]
+            hover:bg-button2 hover:text-white text-white' 
+             `}
             to="/MyAccount/Profile"
           >
             <RiUserLine size={24} />
           </Link>
           <AnimatePresence>
             {showDropdown && (
-              <div className="h-56 w-60 absolute -right-2 ">
+              <div className="h-56 w-60 absolute left-1/2 sm:right-2 sm:left-auto transform -translate-x-1/2 sm:translate-x-0 bottom-16 sm:bottom-auto">
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="w-full h-full bg-black gap-3 font-poppins  pl-5 pt-7 bg-opacity-20 flex flex-col  rounded-md backdrop-blur-3xl -right-2 mt-6  absolute text-white "
+                  className="w-full h-full bg-black border sm:bg-black gap-3 font-poppins  pl-5 pt-7 sm:bg-opacity-20 flex flex-col  rounded-md backdrop-blur-3xl -right-2 mt-6  absolute text-white "
                 >
                   <div className="flex gap-4 hover:text-text2 transition-all duration-200">
                     <RiUserLine size={26} />
